@@ -68,6 +68,11 @@ export default function About() {
               why it worked in the first place.
             </p>
 
+            <p>
+              I've discovered that debugging is mostly patience, logic, and occasionally
+              negotiating with a <span className="about-highlight">drama queen</span>.
+            </p>
+
           </div>
 
         </div>
