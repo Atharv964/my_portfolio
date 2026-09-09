@@ -1,0 +1,625 @@
+/* =========================================
+   CONTACT — QUIET DIGITAL SPACE
+   ========================================= */
+
+.contact {
+  position: relative;
+  padding: 100px var(--spacing-lg) 80px;
+  background: var(--color-bg-primary);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* =========================================
+   AMBIENT LIGHT
+   ========================================= */
+
+.contact-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.contact-orb-one {
+  width: 520px;
+  height: 520px;
+  right: -250px;
+  bottom: -260px;
+  background: radial-gradient(
+    circle,
+    rgba(201, 168, 118, 0.10),
+    transparent 68%
+  );
+}
+
+.contact-orb-two {
+  width: 380px;
+  height: 380px;
+  left: -260px;
+  top: 20%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 168, 118, 0.045),
+    transparent 70%
+  );
+}
+
+/* =========================================
+   SUBTLE GRID
+   ========================================= */
+
+.contact-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(
+      rgba(201, 168, 118, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(201, 168, 118, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 80px 80px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.contact-header {
+  max-width: 850px;
+}
+
+.contact-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.contact-eyebrow-line {
+  width: 42px;
+  height: 1px;
+  background: var(--color-accent);
+  opacity: 0.8;
+}
+
+.contact-header h2 {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(76px, 13vw, 170px);
+  font-weight: var(--font-weight-semibold);
+  line-height: 0.82;
+  letter-spacing: -0.065em;
+  color: var(--color-text-primary);
+}
+
+.contact-header h2 span {
+  margin-left: clamp(40px, 9vw, 120px);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-text-primary);
+  transition:
+    color 500ms ease,
+    -webkit-text-stroke-color 500ms ease,
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-header:hover h2 span {
+  color: var(--color-accent);
+  -webkit-text-stroke-color: var(--color-accent);
+  transform: translateX(10px);
+}
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.contact-intro {
+  max-width: 570px;
+  margin: 48px 0 70px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  line-height: 1.85;
+}
+
+/* =========================================
+   MAIN CTA
+   ========================================= */
+
+.contact-cta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 34px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* CTA LEFT */
+
+.cta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cta-label {
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.18em;
+}
+
+.cta-email {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  color: var(--color-text-primary);
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition:
+    color 300ms ease,
+    gap 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta-email::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition:
+    width 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta-email:hover {
+  color: var(--color-accent);
+  gap: 22px;
+}
+
+.cta-email:hover::after {
+  width: 100%;
+}
+
+.cta-arrow {
+  color: var(--color-accent);
+  font-size: 22px;
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta-email:hover .cta-arrow {
+  transform: translate(5px, -5px);
+}
+
+/* =========================================
+   AVAILABILITY
+   ========================================= */
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.015);
+  transition:
+    border-color 300ms ease,
+    background 300ms ease;
+}
+
+.availability:hover {
+  border-color: rgba(201, 168, 118, 0.3);
+  background: rgba(201, 168, 118, 0.035);
+}
+
+.availability-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.availability-dot::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: availabilityPulse 2.2s infinite;
+}
+
+@keyframes availabilityPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.7;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.availability div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.availability-title {
+  color: var(--color-text-primary);
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.16em;
+}
+
+.availability-text {
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+}
+
+/* =========================================
+   CONTACT METHODS
+   ========================================= */
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 60px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* =========================================
+   CONTACT CARD
+   ========================================= */
+
+.contact-method {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 235px;
+  padding: 26px 28px;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  border-right: 1px solid var(--color-border);
+  transition:
+    background-color 400ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease;
+}
+
+.contact-method:last-child {
+  border-right: none;
+}
+
+/* CARD GLOW */
+
+.contact-method::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-method::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(201, 168, 118, 0.12),
+    transparent 58%
+  );
+  opacity: 0;
+  transition: opacity 450ms ease;
+  pointer-events: none;
+}
+
+/* =========================================
+   CARD TOP
+   ========================================= */
+
+.method-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.method-number {
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.12em;
+}
+
+.method-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-tertiary);
+  font-size: 16px;
+  transition:
+    color 300ms ease,
+    border-color 300ms ease,
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================
+   CARD BOTTOM
+   ========================================= */
+
+.method-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.method-label {
+  color: var(--color-accent);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.18em;
+}
+
+.method-value {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition:
+    color 300ms ease,
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================
+   CARD HOVER
+   ========================================= */
+
+.contact-method:hover {
+  z-index: 3;
+  background: var(--color-bg-secondary);
+  transform: translateY(-8px);
+  border-color: rgba(201, 168, 118, 0.24);
+}
+
+.contact-method:hover::before {
+  transform: scaleX(1);
+}
+
+.contact-method:hover::after {
+  opacity: 1;
+}
+
+.contact-method:hover .method-icon {
+  color: var(--color-accent);
+  border-color: rgba(201, 168, 118, 0.4);
+  transform: translate(3px, -3px);
+}
+
+.contact-method:hover .method-value {
+  color: var(--color-accent-soft);
+  transform: translateX(5px);
+}
+
+/* =========================================
+   BOTTOM DETAIL
+   ========================================= */
+
+.contact-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  color: var(--color-text-tertiary);
+  font-size: 9px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.18em;
+}
+
+.bottom-symbol {
+  color: var(--color-accent);
+  font-size: 12px;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+  .contact {
+    padding: 80px var(--spacing-lg) 70px;
+  }
+
+  .contact-header h2 {
+    font-size: clamp(72px, 15vw, 120px);
+  }
+
+  .contact-intro {
+    margin-bottom: 60px;
+  }
+
+  .contact-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .availability {
+    align-self: flex-start;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method {
+    min-height: 190px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .contact-method:last-child {
+    border-bottom: none;
+  }
+
+  .contact-method:hover {
+    transform: translateX(7px);
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 65px var(--spacing-md) 55px;
+  }
+
+  .contact-orb-one {
+    width: 350px;
+    height: 350px;
+    right: -200px;
+    bottom: -150px;
+  }
+
+  .contact-orb-two {
+    width: 250px;
+    height: 250px;
+    left: -180px;
+  }
+
+  .contact-eyebrow {
+    margin-bottom: 24px;
+    font-size: 9px;
+  }
+
+  .contact-eyebrow-line {
+    width: 30px;
+  }
+
+  .contact-header h2 {
+    font-size: clamp(64px, 19vw, 92px);
+    line-height: 0.86;
+  }
+
+  .contact-header h2 span {
+    margin-left: 32px;
+  }
+
+  .contact-intro {
+    margin: 38px 0 50px;
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+  }
+
+  .contact-cta {
+    gap: 28px;
+    padding: 28px 0;
+  }
+
+  .cta-email {
+    font-size: 18px;
+  }
+
+  .availability {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-methods {
+    margin-top: 50px;
+  }
+
+  .contact-method {
+    min-height: 165px;
+    padding: 22px 20px;
+  }
+
+  .method-value {
+    font-size: var(--font-size-sm);
+  }
+
+  .contact-bottom {
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  .bottom-symbol {
+    display: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact *,
+  .contact *::before,
+  .contact *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

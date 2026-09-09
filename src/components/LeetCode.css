@@ -1,0 +1,514 @@
+/* =====================================================
+   LEETCODE SECTION
+   ===================================================== */
+
+.leetcode-section {
+  width: 100%;
+  padding: 75px 0 90px;
+}
+
+.leetcode-container {
+  width: min(1440px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+/* =====================================================
+   MAIN CARD
+   ===================================================== */
+
+.leetcode-card,
+.activity-calendar-wrapper {
+  width: 100%;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.leetcode-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 44px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: none;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.leetcode-eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #c9a876;
+}
+
+.leetcode-header h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  color: #f0eee9;
+}
+
+.leetcode-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.leetcode-header-meta > div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.header-number {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #c9a876;
+}
+
+.header-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #686868;
+}
+
+/* =====================================================
+   CALENDAR WRAPPER
+   ===================================================== */
+
+.leetcode-calendar-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 168, 118, 0.4) transparent;
+}
+
+.leetcode-calendar-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.leetcode-calendar-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.leetcode-calendar-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 118, 0.35);
+}
+
+/* =====================================================
+   CALENDAR
+   ===================================================== */
+
+.activity-calendar {
+  position: relative;
+  min-width: 1000px;
+  padding: 38px 40px 40px;
+}
+
+/* =====================================================
+   MONTH LABELS
+   ===================================================== */
+
+.activity-months {
+  position: relative;
+  height: 22px;
+  margin-left: 34px;
+  width: max-content;
+}
+
+.activity-month {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #777;
+}
+
+/* =====================================================
+   CALENDAR BODY
+   ===================================================== */
+
+.activity-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* =====================================================
+   DAY LABELS
+   ===================================================== */
+
+.activity-day-labels {
+  width: 24px;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-rows: repeat(7, 13px);
+  row-gap: 4px;
+}
+
+.activity-day-labels span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 13px;
+  font-size: 10px;
+  line-height: 13px;
+  color: #666;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   ACTIVITY GRID
+   ===================================================== */
+
+.activity-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 13px);
+  grid-auto-columns: 13px;
+  column-gap: 4px;
+  row-gap: 4px;
+  width: max-content;
+}
+
+/* =====================================================
+   ACTIVITY CELLS
+   ===================================================== */
+
+.activity-cell {
+  width: 13px;
+  height: 13px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.activity-cell:hover {
+  transform: scale(1.3);
+  border-color: rgba(201, 168, 118, 0.55);
+  z-index: 2;
+}
+
+/* =====================================================
+   ACTIVITY LEVELS
+   ===================================================== */
+
+.level-0 {
+  background: #111;
+}
+
+.level-1 {
+  background: #29251e;
+}
+
+.level-2 {
+  background: #4a4030;
+}
+
+.level-3 {
+  background: #6b5b42;
+}
+
+.level-4 {
+  background: #9a7f55;
+}
+
+/* =====================================================
+   LEGEND
+   ===================================================== */
+
+.activity-legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding-right: 2px;
+}
+
+.activity-legend > span {
+  font-size: 9px;
+  line-height: 13px;
+  letter-spacing: 0.1em;
+  color: #666;
+}
+
+.legend-squares {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-squares .activity-cell {
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   STATS
+   ===================================================== */
+
+.leetcode-stats {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.leetcode-stat {
+  min-height: 120px;
+  padding: 25px 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.008);
+}
+
+.leetcode-stat:last-child {
+  border-right: none;
+}
+
+.stat-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.stat-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: #666;
+}
+
+.stat-count {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #e9e5dc;
+}
+
+.stat-count small {
+  font-size: 11px;
+  color: #666;
+}
+
+.stat-percent {
+  font-size: 10px;
+  color: #777;
+}
+
+/* =====================================================
+   PROGRESS BAR
+   ===================================================== */
+
+.stat-progress {
+  width: 100%;
+  height: 2px;
+  margin-top: 22px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.stat-progress span {
+  display: block;
+  height: 100%;
+  background: #c9a876;
+  transition: width 0.8s ease;
+}
+
+/* =====================================================
+   TOTAL STAT
+   ===================================================== */
+
+.total-stat .stat-value {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  color: #c9a876;
+  font-weight: 500;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.leetcode-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px 4px 0;
+}
+
+.leetcode-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #777;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.leetcode-footer a:hover {
+  color: #c9a876;
+  gap: 12px;
+}
+
+.leetcode-footer a span {
+  font-size: 14px;
+}
+
+/* =====================================================
+   LOADING / ERROR
+   ===================================================== */
+
+.leetcode-loading,
+.leetcode-error {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #777;
+  font-size: 13px;
+}
+
+.leetcode-error {
+  flex-direction: column;
+  gap: 15px;
+}
+
+.leetcode-error a {
+  color: #c9a876;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 1100px) {
+  .leetcode-container {
+    width: min(100% - 40px, 1440px);
+  }
+
+  .leetcode-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .leetcode-stat:nth-child(3) {
+    border-right: none;
+  }
+
+  .leetcode-stat:nth-child(-n + 3) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+  .leetcode-section {
+    padding: 55px 0 70px;
+  }
+
+  .leetcode-container {
+    width: calc(100% - 30px);
+  }
+
+  .leetcode-header {
+    padding: 30px 24px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .leetcode-header-meta {
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .leetcode-calendar-wrapper {
+    border-left: 1px solid rgba(255, 255, 255, 0.09);
+    border-right: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  .activity-calendar {
+    padding: 32px 24px;
+  }
+
+  .leetcode-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leetcode-stat {
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .leetcode-stat:nth-child(2n) {
+    border-right: none;
+  }
+
+  .leetcode-stat:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 450px) {
+  .leetcode-header-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .leetcode-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .leetcode-stat {
+    border-right: none !important;
+  }
+
+  .leetcode-stat:last-child {
+    border-bottom: none;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-cell,
+  .stat-progress span,
+  .leetcode-footer a {
+    transition: none;
+  }
+}
