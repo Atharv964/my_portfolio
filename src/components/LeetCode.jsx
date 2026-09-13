@@ -1,3 +1,4 @@
+
 import { useEffect, useMemo, useState } from "react";
 import "./LeetCode.css";
 import { leetcodeConfig } from "../data/leetcode";
@@ -39,12 +40,7 @@ const LeetCode = () => {
     fetchLeetCodeData();
   }, []);
 
-  /*
-   * ----------------------------------------------------
-   * CREATE LAST 365 DAYS
-   * ----------------------------------------------------
-   */
-
+  // Create last 365 days
   const calendarDays = useMemo(() => {
     if (!leetcodeData) return [];
 
@@ -53,9 +49,6 @@ const LeetCode = () => {
       leetcodeData.data?.submissionCalendar ||
       {};
 
-    /*
-     * Convert Unix timestamps into YYYY-MM-DD keys.
-     */
     const submissionMap = {};
 
     Object.entries(submissionCalendar).forEach(([timestamp, count]) => {
@@ -70,20 +63,10 @@ const LeetCode = () => {
       submissionMap[key] = count;
     });
 
-    /*
-     * End on today.
-     */
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    /*
-     * Move backwards until Sunday.
-     *
-     * This makes the calendar start cleanly on Sunday
-     * and creates proper week columns.
-     */
     const startDate = new Date(today);
-
     startDate.setDate(today.getDate() - 364);
 
     while (startDate.getDay() !== 0) {
@@ -91,12 +74,8 @@ const LeetCode = () => {
     }
 
     const days = [];
-
     const current = new Date(startDate);
 
-    /*
-     * Continue until the end date is reached.
-     */
     while (current <= today || days.length % 7 !== 0) {
       const key = [
         current.getFullYear(),
@@ -116,12 +95,7 @@ const LeetCode = () => {
     return days;
   }, [leetcodeData]);
 
-  /*
-   * ----------------------------------------------------
-   * SPLIT DAYS INTO WEEKS
-   * ----------------------------------------------------
-   */
-
+  // Split days into weeks
   const weeks = useMemo(() => {
     const result = [];
 
@@ -132,23 +106,7 @@ const LeetCode = () => {
     return result;
   }, [calendarDays]);
 
-  /*
-   * ----------------------------------------------------
-   * MONTH LABELS
-   *
-   * IMPORTANT:
-   *
-   * We detect the FIRST actual day of every month.
-   *
-   * The old implementation only detected months when
-   * the month started on Sunday, which caused:
-   *
-   * SEP → FEB → MAR
-   *
-   * This implementation fixes that completely.
-   * ----------------------------------------------------
-   */
-
+  // Month labels
   const monthLabels = useMemo(() => {
     if (!calendarDays.length) return [];
 
@@ -167,7 +125,6 @@ const LeetCode = () => {
               month: "short",
             })
             .toUpperCase(),
-
           weekIndex: Math.floor(index / 7),
         });
       }
@@ -176,20 +133,10 @@ const LeetCode = () => {
     return labels;
   }, [calendarDays]);
 
-  /*
-   * ----------------------------------------------------
-   * DAY LABELS
-   * ----------------------------------------------------
-   */
-
+  // Day labels
   const dayLabels = ["", "Mon", "", "Wed", "", "Fri", ""];
 
-  /*
-   * ----------------------------------------------------
-   * SUBMISSION LEVEL
-   * ----------------------------------------------------
-   */
-
+  // Submission level
   const getLevel = (count) => {
     if (count === 0) return 0;
     if (count <= 2) return 1;
@@ -198,12 +145,7 @@ const LeetCode = () => {
     return 4;
   };
 
-  /*
-   * ----------------------------------------------------
-   * TOTAL SUBMISSIONS
-   * ----------------------------------------------------
-   */
-
+  // Total submissions
   const totalSubmissions = useMemo(() => {
     if (!calendarDays.length) return 0;
 
@@ -212,12 +154,7 @@ const LeetCode = () => {
     }, 0);
   }, [calendarDays]);
 
-  /*
-   * ----------------------------------------------------
-   * LOADING STATE
-   * ----------------------------------------------------
-   */
-
+  // Loading state
   if (loading) {
     return (
       <section className="leetcode-section" id="leetcode">
@@ -230,12 +167,7 @@ const LeetCode = () => {
     );
   }
 
-  /*
-   * ----------------------------------------------------
-   * ERROR STATE
-   * ----------------------------------------------------
-   */
-
+  // Error state
   if (error || !leetcodeData) {
     return (
       <section className="leetcode-section" id="leetcode">
@@ -256,32 +188,41 @@ const LeetCode = () => {
     );
   }
 
-  /*
-   * ----------------------------------------------------
-   * API DATA
-   * ----------------------------------------------------
-   */
-
+  // API data
   const totalSolved =
-    leetcodeData.totalSolved ?? leetcodeData.data?.totalSolved ?? 0;
+    leetcodeData.totalSolved ??
+    leetcodeData.data?.totalSolved ??
+    0;
 
   const easySolved =
-    leetcodeData.easySolved ?? leetcodeData.data?.easySolved ?? 0;
+    leetcodeData.easySolved ??
+    leetcodeData.data?.easySolved ??
+    0;
 
   const mediumSolved =
-    leetcodeData.mediumSolved ?? leetcodeData.data?.mediumSolved ?? 0;
+    leetcodeData.mediumSolved ??
+    leetcodeData.data?.mediumSolved ??
+    0;
 
   const hardSolved =
-    leetcodeData.hardSolved ?? leetcodeData.data?.hardSolved ?? 0;
+    leetcodeData.hardSolved ??
+    leetcodeData.data?.hardSolved ??
+    0;
 
   const totalEasy =
-    leetcodeData.totalEasy ?? leetcodeData.data?.totalEasy ?? 0;
+    leetcodeData.totalEasy ??
+    leetcodeData.data?.totalEasy ??
+    0;
 
   const totalMedium =
-    leetcodeData.totalMedium ?? leetcodeData.data?.totalMedium ?? 0;
+    leetcodeData.totalMedium ??
+    leetcodeData.data?.totalMedium ??
+    0;
 
   const totalHard =
-    leetcodeData.totalHard ?? leetcodeData.data?.totalHard ?? 0;
+    leetcodeData.totalHard ??
+    leetcodeData.data?.totalHard ??
+    0;
 
   const acceptanceRate = Number(
     leetcodeData.acceptanceRate ??
@@ -295,14 +236,11 @@ const LeetCode = () => {
     0;
 
   const ranking =
-    leetcodeData.ranking ?? leetcodeData.data?.ranking ?? 0;
+    leetcodeData.ranking ??
+    leetcodeData.data?.ranking ??
+    0;
 
-  /*
-   * ----------------------------------------------------
-   * FORMAT RANK
-   * ----------------------------------------------------
-   */
-
+  // Format rank
   const formattedRanking = ranking
     ? Number(ranking).toLocaleString("en-US")
     : "—";
@@ -311,10 +249,7 @@ const LeetCode = () => {
     <section className="leetcode-section" id="leetcode">
       <div className="leetcode-container">
 
-        {/* ==============================================
-            HEADER
-        ============================================== */}
-
+        {/* HEADER */}
         <div className="leetcode-header">
           <div>
             <p className="leetcode-eyebrow">
@@ -349,15 +284,9 @@ const LeetCode = () => {
           </div>
         </div>
 
-        {/* ==============================================
-            CALENDAR
-        ============================================== */}
-
+        {/* CALENDAR */}
         <div className="leetcode-calendar-wrapper">
-
           <div className="activity-calendar">
-
-            {/* MONTHS */}
 
             <div className="activity-months">
               {monthLabels.map((month, index) => (
@@ -373,11 +302,7 @@ const LeetCode = () => {
               ))}
             </div>
 
-            {/* CALENDAR BODY */}
-
             <div className="activity-body">
-
-              {/* DAY LABELS */}
 
               <div className="activity-day-labels">
                 {dayLabels.map((label, index) => (
@@ -387,10 +312,8 @@ const LeetCode = () => {
                 ))}
               </div>
 
-              {/* SQUARE GRID */}
-
               <div className="activity-grid">
-                {weeks.map((week, weekIndex) =>
+                {weeks.map((week) =>
                   week.map((day) => (
                     <div
                       key={day.key}
@@ -411,9 +334,8 @@ const LeetCode = () => {
                   ))
                 )}
               </div>
-            </div>
 
-            {/* LEGEND */}
+            </div>
 
             <div className="activity-legend">
               <span>LESS</span>
@@ -432,14 +354,10 @@ const LeetCode = () => {
           </div>
         </div>
 
-        {/* ==============================================
-            STATS
-        ============================================== */}
-
+        {/* STATS */}
         <div className="leetcode-stats">
 
           {/* TOTAL */}
-
           <div className="leetcode-stat total-stat">
             <div className="stat-top">
               <span className="stat-label">
@@ -469,7 +387,6 @@ const LeetCode = () => {
           </div>
 
           {/* EASY */}
-
           <div className="leetcode-stat">
             <div className="stat-top">
               <div>
@@ -507,7 +424,6 @@ const LeetCode = () => {
           </div>
 
           {/* MEDIUM */}
-
           <div className="leetcode-stat">
             <div className="stat-top">
               <div>
@@ -545,7 +461,6 @@ const LeetCode = () => {
           </div>
 
           {/* HARD */}
-
           <div className="leetcode-stat">
             <div className="stat-top">
               <div>
@@ -583,7 +498,6 @@ const LeetCode = () => {
           </div>
 
           {/* ACCEPTANCE */}
-
           <div className="leetcode-stat">
             <div className="stat-top">
               <div>
@@ -610,7 +524,6 @@ const LeetCode = () => {
           </div>
 
           {/* RANK */}
-
           <div className="leetcode-stat">
             <div className="stat-top">
               <div>
@@ -627,10 +540,7 @@ const LeetCode = () => {
 
         </div>
 
-        {/* ==============================================
-            PROFILE LINK
-        ============================================== */}
-
+        {/* PROFILE LINK */}
         <div className="leetcode-footer">
           <a
             href={leetcodeConfig.profileUrl}

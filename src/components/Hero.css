@@ -5,11 +5,16 @@
 
 .hero {
   position: relative;
+
   min-height: calc(100vh - 72px);
+
   display: flex;
   align-items: center;
+
   padding: 100px var(--spacing-lg);
+
   overflow: hidden;
+
   background: var(--color-bg-primary);
 }
 
@@ -19,22 +24,27 @@
 
 .hero::before {
   content: "";
+
   position: absolute;
-  width: 700px;
-  height: 700px;
+
+  width: 800px;
+  height: 800px;
+
   top: 50%;
-  left: 50%;
+  left: 58%;
+
   transform: translate(-50%, -50%);
 
   background:
     radial-gradient(
       circle,
-      rgba(201, 168, 118, 0.085),
-      rgba(201, 168, 118, 0.025) 35%,
+      rgba(201, 168, 118, 0.14),
+      rgba(201, 168, 118, 0.045) 35%,
       transparent 70%
     );
 
   pointer-events: none;
+
   animation: heroBreath 8s ease-in-out infinite;
 }
 
@@ -42,12 +52,18 @@
   0%,
   100% {
     opacity: 0.55;
-    transform: translate(-50%, -50%) scale(0.95);
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.95);
   }
 
   50% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.08);
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
   }
 }
 
@@ -57,34 +73,42 @@
 
 .hero::after {
   content: "";
+
   position: absolute;
+
   width: 1px;
   height: 65%;
-  right: 18%;
+
+  right: 15%;
   top: 18%;
 
   background:
     linear-gradient(
       to bottom,
       transparent,
-      rgba(201, 168, 118, 0.2),
+      rgba(201, 168, 118, 0.35),
       transparent
     );
 
-  opacity: 0.5;
+  opacity: 0.7;
+
   animation: heroLine 9s ease-in-out infinite;
+
+  pointer-events: none;
 }
 
 @keyframes heroLine {
   0%,
   100% {
     transform: translateY(-30px);
-    opacity: 0.15;
+
+    opacity: 0.25;
   }
 
   50% {
     transform: translateY(30px);
-    opacity: 0.5;
+
+    opacity: 0.75;
   }
 }
 
@@ -94,11 +118,16 @@
 
 .hero-content {
   position: relative;
-  z-index: 2;
+
+  z-index: 5;
 
   width: 100%;
+
   max-width: 1100px;
+
   margin: 0 auto;
+
+  padding-right: 280px;
 }
 
 /* =========================================================
@@ -111,9 +140,11 @@
   color: var(--color-accent);
 
   font-size: 12px;
+
   font-weight: var(--font-weight-semibold);
 
   letter-spacing: 0.24em;
+
   text-transform: uppercase;
 
   opacity: 0;
@@ -132,12 +163,15 @@
   position: relative;
 
   margin: 0;
+
   max-width: 1000px;
 
   font-size: clamp(64px, 11vw, 150px);
+
   font-weight: var(--font-weight-semibold);
 
   line-height: 0.88;
+
   letter-spacing: -0.065em;
 
   color: var(--color-text-primary);
@@ -151,6 +185,7 @@
 }
 
 @keyframes heroNameReveal {
+
   0% {
     opacity: 0;
 
@@ -163,6 +198,7 @@
 
   60% {
     opacity: 1;
+
     filter: blur(0);
   }
 
@@ -178,7 +214,7 @@
 }
 
 /* =========================================================
-   NAME GOLD ACCENT
+   NAME ACCENT
    ========================================================= */
 
 .hero-name::after {
@@ -194,7 +230,11 @@
 
   background: var(--color-accent);
 
+  box-shadow:
+    0 0 10px rgba(201, 168, 118, 0.35);
+
   transform-origin: left;
+
   transform: scaleX(0);
 
   animation:
@@ -219,6 +259,7 @@
   color: var(--color-text-secondary);
 
   font-size: clamp(20px, 3vw, 30px);
+
   font-weight: var(--font-weight-medium);
 
   letter-spacing: -0.02em;
@@ -251,6 +292,7 @@
   color: var(--color-text-primary);
 
   font-size: clamp(18px, 2.4vw, 25px);
+
   font-weight: var(--font-weight-medium);
 
   line-height: 1.6;
@@ -289,12 +331,13 @@
 }
 
 /* =========================================================
-   CTA CONTAINER
+   CTA
    ========================================================= */
 
 .hero-cta {
   display: flex;
   align-items: center;
+
   gap: 14px;
 
   margin-top: 38px;
@@ -307,14 +350,11 @@
     forwards;
 }
 
-/* =========================================================
-   CTA BASE
-   ========================================================= */
-
 .cta-button {
   position: relative;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -325,6 +365,7 @@
   padding: 0 20px;
 
   font-size: var(--font-size-sm);
+
   font-weight: var(--font-weight-medium);
 
   text-decoration: none;
@@ -345,6 +386,7 @@
 
 .cta-arrow {
   position: relative;
+
   z-index: 2;
 
   display: inline-block;
@@ -402,7 +444,7 @@
   background: var(--color-accent-soft);
 
   box-shadow:
-    0 12px 30px rgba(201, 168, 118, 0.16);
+    0 12px 30px rgba(201, 168, 118, 0.22);
 }
 
 .cta-button.primary:hover::before {
@@ -425,9 +467,11 @@
   content: "";
 
   position: absolute;
+
   inset: 0;
 
-  background: rgba(201, 168, 118, 0.06);
+  background:
+    rgba(201, 168, 118, 0.08);
 
   transform: scaleX(0);
 
@@ -441,7 +485,8 @@
 .cta-button.secondary:hover {
   transform: translateY(-4px);
 
-  border-color: rgba(201, 168, 118, 0.4);
+  border-color:
+    rgba(201, 168, 118, 0.5);
 
   color: var(--color-accent-soft);
 }
@@ -465,6 +510,7 @@
   color: var(--color-text-tertiary);
 
   font-size: 9px;
+
   font-weight: var(--font-weight-medium);
 
   letter-spacing: 0.22em;
@@ -479,10 +525,6 @@
     forwards;
 }
 
-/* =========================================================
-   SIGNATURE LINE
-   ========================================================= */
-
 .signature-line {
   display: block;
 
@@ -490,6 +532,9 @@
   height: 1px;
 
   background: var(--color-accent);
+
+  box-shadow:
+    0 0 8px rgba(201, 168, 118, 0.4);
 
   transform-origin: left;
 
@@ -507,10 +552,6 @@
   }
 }
 
-/* =========================================================
-   SIGNATURE HOVER
-   ========================================================= */
-
 .hero-signature:hover {
   color: var(--color-text-secondary);
 
@@ -526,10 +567,600 @@
 }
 
 /* =========================================================
-   MAIN FADE-UP ANIMATION
+   =========================================================
+   ABSTRACT HERO VISUAL
+   =========================================================
+   ========================================================= */
+
+.hero-visual {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 50%;
+  right: 5%;
+
+  width: min(38vw, 520px);
+
+  aspect-ratio: 1;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  animation:
+    visualReveal 1200ms 500ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+@keyframes visualReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-50%)
+      scale(0.82)
+      rotate(-6deg);
+
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-50%)
+      scale(1)
+      rotate(0);
+
+    filter: blur(0);
+  }
+}
+
+/* =========================================================
+   VISUAL GLOW
+   ========================================================= */
+
+.visual-glow {
+  position: absolute;
+
+  width: 78%;
+  height: 78%;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(201, 168, 118, 0.22),
+      rgba(201, 168, 118, 0.07) 42%,
+      transparent 72%
+    );
+
+  filter: blur(15px);
+
+  animation:
+    visualGlow 7s ease-in-out infinite;
+}
+
+@keyframes visualGlow {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.9);
+
+    opacity: 0.6;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.13);
+
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   ORBITS
+   ========================================================= */
+
+.visual-orbit {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-20deg);
+
+  border:
+    1px solid
+    rgba(201, 168, 118, 0.32);
+
+  box-shadow:
+    0 0 10px
+    rgba(201, 168, 118, 0.035);
+}
+
+.visual-orbit-one {
+  width: 68%;
+  height: 68%;
+
+  animation:
+    orbitRotateOne 18s linear infinite;
+}
+
+.visual-orbit-two {
+  width: 92%;
+  height: 48%;
+
+  border-color:
+    rgba(201, 168, 118, 0.25);
+
+  animation:
+    orbitRotateTwo 24s linear infinite;
+}
+
+.visual-orbit-three {
+  width: 50%;
+  height: 94%;
+
+  border-color:
+    rgba(201, 168, 118, 0.22);
+
+  animation:
+    orbitRotateThree 28s linear infinite;
+}
+
+@keyframes orbitRotateOne {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(-20deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(340deg);
+  }
+}
+
+@keyframes orbitRotateTwo {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(55deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(415deg);
+  }
+}
+
+@keyframes orbitRotateThree {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(-65deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(295deg);
+  }
+}
+
+/* =========================================================
+   CORE
+   ========================================================= */
+
+.visual-core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 29%;
+
+  aspect-ratio: 1;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(45deg);
+
+  border:
+    1px solid
+    rgba(201, 168, 118, 0.72);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(201, 168, 118, 0.22),
+      rgba(201, 168, 118, 0.045)
+    );
+
+  box-shadow:
+    0 0 30px
+    rgba(201, 168, 118, 0.16),
+
+    0 0 80px
+    rgba(201, 168, 118, 0.07),
+
+    inset 0 0 35px
+    rgba(201, 168, 118, 0.08);
+
+  backdrop-filter: blur(5px);
+
+  animation:
+    coreFloat 5s ease-in-out infinite;
+}
+
+@keyframes coreFloat {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -53%)
+      rotate(50deg)
+      scale(1.05);
+  }
+}
+
+/* =========================================================
+   CORE INNER
+   ========================================================= */
+
+.core-inner {
+  position: absolute;
+
+  inset: 12%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(201, 168, 118, 0.3);
+
+  transform: rotate(-45deg);
+
+  background:
+    rgba(10, 10, 10, 0.55);
+
+  box-shadow:
+    inset 0 0 20px
+    rgba(201, 168, 118, 0.06);
+}
+
+.core-symbol {
+  color: var(--color-accent);
+
+  font-size: clamp(
+    18px,
+    2.5vw,
+    30px
+  );
+
+  font-family: monospace;
+
+  text-shadow:
+    0 0 14px
+    rgba(201, 168, 118, 0.45);
+
+  opacity: 0.95;
+
+  animation:
+    symbolPulse 3s ease-in-out infinite;
+}
+
+@keyframes symbolPulse {
+
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   NODES
+   ========================================================= */
+
+.visual-node {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    #e4c99b;
+
+  box-shadow:
+    0 0 8px
+    rgba(201, 168, 118, 0.9),
+
+    0 0 20px
+    rgba(201, 168, 118, 0.55),
+
+    0 0 40px
+    rgba(201, 168, 118, 0.18);
+
+  animation:
+    nodePulse 3s ease-in-out infinite;
+}
+
+.node-one {
+  top: 19%;
+  left: 31%;
+}
+
+.node-two {
+  top: 70%;
+  left: 77%;
+
+  animation-delay: 800ms;
+}
+
+.node-three {
+  top: 78%;
+  left: 24%;
+
+  animation-delay: 1400ms;
+}
+
+@keyframes nodePulse {
+
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform: scale(0.75);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.3);
+  }
+}
+
+/* =========================================================
+   CONNECTING LINES
+   ========================================================= */
+
+.visual-line {
+  position: absolute;
+
+  height: 1px;
+
+  transform-origin: left;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(201, 168, 118, 0.7),
+      rgba(201, 168, 118, 0.08),
+      transparent
+    );
+
+  box-shadow:
+    0 0 5px
+    rgba(201, 168, 118, 0.15);
+
+  opacity: 0.65;
+}
+
+.line-one {
+  width: 25%;
+
+  top: 25%;
+  left: 34%;
+
+  transform: rotate(35deg);
+}
+
+.line-two {
+  width: 31%;
+
+  top: 69%;
+  left: 44%;
+
+  transform: rotate(8deg);
+}
+
+.line-three {
+  width: 24%;
+
+  top: 67%;
+  left: 27%;
+
+  transform: rotate(-42deg);
+}
+
+/* =========================================================
+   VISUAL LABELS
+   ========================================================= */
+
+.visual-label {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--color-text-secondary);
+
+  font-size: 8px;
+
+  font-weight: var(--font-weight-medium);
+
+  letter-spacing: 0.16em;
+
+  white-space: nowrap;
+
+  opacity: 0.8;
+
+  animation:
+    labelFloat 5s ease-in-out infinite;
+}
+
+.visual-label span {
+  color: var(--color-accent);
+
+  font-family: monospace;
+
+  text-shadow:
+    0 0 8px
+    rgba(201, 168, 118, 0.3);
+}
+
+.label-one {
+  top: 15%;
+  right: 14%;
+}
+
+.label-two {
+  bottom: 19%;
+  right: 7%;
+
+  animation-delay: 900ms;
+}
+
+.label-three {
+  bottom: 12%;
+  left: 12%;
+
+  animation-delay: 1700ms;
+}
+
+@keyframes labelFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.hero-scroll {
+  position: absolute;
+
+  z-index: 6;
+
+  bottom: 32px;
+  left: var(--spacing-lg);
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--color-text-tertiary);
+
+  font-size: 8px;
+
+  font-weight: var(--font-weight-medium);
+
+  letter-spacing: 0.2em;
+
+  writing-mode: vertical-rl;
+
+  opacity: 0;
+
+  animation:
+    heroFadeUp 700ms 1500ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.hero-scroll-line {
+  display: block;
+
+  width: 1px;
+  height: 40px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--color-accent),
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(201, 168, 118, 0.3);
+
+  animation:
+    scrollLine 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+
+  0%,
+  100% {
+    transform: scaleY(0.65);
+
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+
+    transform-origin: top;
+  }
+}
+
+/* =========================================================
+   MAIN FADE-UP
    ========================================================= */
 
 @keyframes heroFadeUp {
+
   from {
     opacity: 0;
 
@@ -540,6 +1171,27 @@
     opacity: 1;
 
     transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   LARGE TABLETS / SMALL LAPTOPS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero-content {
+    padding-right: 180px;
+  }
+
+  .hero-visual {
+    right: 0;
+
+    width: 390px;
+  }
+
+  .visual-label {
+    font-size: 7px;
   }
 }
 
@@ -555,6 +1207,10 @@
     padding:
       80px
       var(--spacing-md);
+  }
+
+  .hero-content {
+    padding-right: 0;
   }
 
   .hero-name {
@@ -579,13 +1235,36 @@
     right: 8%;
   }
 
+  /* -------------------------------------------------------
+     TABLET VISUAL
+     ------------------------------------------------------- */
+
+  .hero-visual {
+    z-index: 1;
+
+    top: 50%;
+    right: -55px;
+
+    width: 390px;
+
+    opacity: 0.42;
+  }
+
+  .hero-content {
+    z-index: 4;
+  }
+
+  .hero-scroll {
+    left: var(--spacing-md);
+  }
+
   .hero-signature {
     margin-top: 42px;
   }
 }
 
 /* =========================================================
-   SMALL MOBILE
+   MOBILE
    ========================================================= */
 
 @media (max-width: 480px) {
@@ -596,6 +1275,32 @@
     padding:
       65px
       var(--spacing-md);
+  }
+
+  /* -------------------------------------------------------
+     BACKGROUND
+     ------------------------------------------------------- */
+
+  .hero::before {
+    width: 500px;
+    height: 500px;
+
+    top: 22%;
+    left: 78%;
+
+    opacity: 0.7;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     CONTENT
+     ------------------------------------------------------- */
+
+  .hero-content {
+    z-index: 5;
   }
 
   .hero-intro {
@@ -617,7 +1322,11 @@
   .hero-title {
     margin-top: 32px;
 
+    max-width: 300px;
+
     font-size: 18px;
+
+    line-height: 1.4;
   }
 
   .hero-title span {
@@ -627,18 +1336,22 @@
   .hero-tagline {
     margin-top: 22px;
 
+    max-width: 360px;
+
     font-size: 17px;
 
     line-height: 1.55;
   }
 
   .hero-description {
+    max-width: 350px;
+
     font-size: var(--font-size-sm);
   }
 
-  /* -------------------------
+  /* -------------------------------------------------------
      MOBILE CTA
-     ------------------------- */
+     ------------------------------------------------------- */
 
   .hero-cta {
     align-items: stretch;
@@ -656,26 +1369,97 @@
     min-height: 50px;
   }
 
-  /* -------------------------
+  /* -------------------------------------------------------
+     MOBILE VISUAL
+     ------------------------------------------------------- */
+
+  .hero-visual {
+    z-index: 1;
+
+    top: 17%;
+    right: -105px;
+
+    width: 300px;
+
+    opacity: 0.27;
+
+    animation:
+      mobileVisualReveal 1200ms 400ms
+      cubic-bezier(0.16, 1, 0.3, 1)
+      forwards;
+  }
+
+  @keyframes mobileVisualReveal {
+
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(-10px)
+        scale(0.8)
+        rotate(-6deg);
+
+      filter: blur(10px);
+    }
+
+    to {
+      opacity: 0.27;
+
+      transform:
+        translateY(0)
+        scale(1)
+        rotate(0);
+
+      filter: blur(0);
+    }
+  }
+
+  .visual-orbit-one {
+    width: 72%;
+    height: 72%;
+  }
+
+  .visual-orbit-two {
+    width: 94%;
+    height: 45%;
+  }
+
+  .visual-orbit-three {
+    width: 48%;
+    height: 92%;
+  }
+
+  .visual-core {
+    width: 30%;
+  }
+
+  .visual-label {
+    display: none;
+  }
+
+  .visual-line {
+    opacity: 0.45;
+  }
+
+  .visual-node {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* -------------------------------------------------------
+     MOBILE SCROLL
+     ------------------------------------------------------- */
+
+  .hero-scroll {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
      MOBILE SIGNATURE
-     ------------------------- */
+     ------------------------------------------------------- */
 
   .hero-signature {
-    gap: 10px;
-
-    margin-top: 38px;
-
-    font-size: 8px;
-
-    letter-spacing: 0.15em;
-  }
-
-  .signature-line {
-    width: 28px;
-  }
-
-  .hero-signature:hover .signature-line {
-    width: 40px;
+    display: none;
   }
 }
 
@@ -684,6 +1468,12 @@
    ========================================================= */
 
 @media (max-width: 360px) {
+
+  .hero {
+    padding:
+      58px
+      var(--spacing-md);
+  }
 
   .hero-name {
     font-size: 46px;
@@ -697,10 +1487,43 @@
     font-size: 16px;
   }
 
-  .hero-signature {
-    font-size: 7px;
+  .hero-description {
+    font-size: 13px;
+  }
 
-    letter-spacing: 0.11em;
+  .hero-visual {
+    top: 16%;
+
+    right: -125px;
+
+    width: 280px;
+
+    opacity: 0.24;
+  }
+
+  @keyframes mobileVisualReveal {
+
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(-10px)
+        scale(0.8)
+        rotate(-6deg);
+
+      filter: blur(10px);
+    }
+
+    to {
+      opacity: 0.24;
+
+      transform:
+        translateY(0)
+        scale(1)
+        rotate(0);
+
+      filter: blur(0);
+    }
   }
 }
 
@@ -712,6 +1535,7 @@
 
   .hero::before,
   .hero::after,
+
   .hero-intro,
   .hero-name,
   .hero-name::after,
@@ -720,7 +1544,19 @@
   .hero-description,
   .hero-cta,
   .hero-signature,
-  .signature-line {
+
+  .signature-line,
+
+  .hero-visual,
+  .visual-glow,
+  .visual-orbit,
+  .visual-core,
+  .core-symbol,
+  .visual-node,
+  .visual-label,
+  .hero-scroll,
+  .hero-scroll-line {
+
     animation: none;
   }
 
@@ -730,7 +1566,10 @@
   .hero-tagline,
   .hero-description,
   .hero-cta,
-  .hero-signature {
+  .hero-signature,
+  .hero-visual,
+  .hero-scroll {
+
     opacity: 1;
 
     transform: none;

@@ -512,3 +512,9 @@
     transition: none;
   }
 }
+
+@media (max-width: 650px) {
+  .leetcode-calendar {
+    display: none;
+  }
+}

@@ -18,9 +18,9 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      <Experience />
+      {/* <Experience /> */}
       <Education />
-      <LeetCode />
+      {/* <LeetCode /> */}
       <Contact />
       <Footer />
     </>

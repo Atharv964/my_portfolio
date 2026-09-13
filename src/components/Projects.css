@@ -1330,3 +1330,9 @@
     animation: none;
   }
 }
+
+@media (max-width: 650px) {
+  .projects-footer {
+    display: none;
+  }
+}

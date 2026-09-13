@@ -33,7 +33,7 @@ export default function About() {
             I don't just write
             <span> code.</span>
             <br />
-            I collect problems.
+            I solve problems.
           </h2>
 
         </div>
@@ -46,7 +46,7 @@ export default function About() {
 
           <div className="about-story-label">
             <span>01</span>
-            <span>THE SHORT VERSION</span>
+            {/* <span>THE SHORT VERSION</span> */}
           </div>
 
           <div className="about-text">

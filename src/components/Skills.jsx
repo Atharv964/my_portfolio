@@ -1,11 +1,20 @@
+
+import { useState } from 'react';
 import './Skills.css';
 
 import { skillsData } from '../data/skills';
 
 export default function Skills() {
+  const [openCategory, setOpenCategory] = useState(null);
+
+  const toggleCategory = (category) => {
+    setOpenCategory(
+      openCategory === category ? null : category
+    );
+  };
+
   return (
     <section id="skills" className="skills">
-
       <div className="skills-container">
 
         {/* =========================================
@@ -13,7 +22,6 @@ export default function Skills() {
            ========================================= */}
 
         <div className="skills-header">
-
           <span className="skills-index">
             02 / STACK
           </span>
@@ -21,15 +29,14 @@ export default function Skills() {
           <span className="skills-caption">
             THE THINGS I BREAK & FIX
           </span>
-
         </div>
+
 
         {/* =========================================
             INTRO
            ========================================= */}
 
         <div className="skills-intro">
-
           <p className="skills-eyebrow">
             THE TOOLBOX
           </p>
@@ -44,86 +51,99 @@ export default function Skills() {
             APIs, applications, and occasionally a very stubborn bug
             that refuses to disappear.
           </p>
-
         </div>
+
 
         {/* =========================================
             SKILL CATEGORIES
            ========================================= */}
 
         <div className="skills-grid">
-
           {Object.entries(skillsData).map(
-            ([category, skills], categoryIndex) => (
+            ([category, skills], categoryIndex) => {
+              const isOpen = openCategory === category;
 
-              <article
-                key={category}
-                className="skill-category"
-                data-number={`0${categoryIndex + 1}`}
-              >
+              return (
+                <article
+                  key={category}
+                  className={`skill-category ${
+                    isOpen ? 'is-open' : ''
+                  }`}
+                  data-number={`0${categoryIndex + 1}`}
+                >
 
-                {/* Category Header */}
+                  {/* Category Header */}
 
-                <div className="skill-category-header">
+                  <button
+                    type="button"
+                    className="skill-category-header"
+                    onClick={() => toggleCategory(category)}
+                    aria-expanded={isOpen}
+                  >
+                    <div className="skill-category-title">
+                      <span className="skill-category-number">
+                        0{categoryIndex + 1}
+                      </span>
 
-                  <span className="skill-category-number">
-                    0{categoryIndex + 1}
-                  </span>
+                      <span className="skill-category-name">
+                        {category}
+                      </span>
+                    </div>
 
-                  <span className="skill-category-name">
-                    {category}
-                  </span>
-
-                </div>
-
-                {/* Skills */}
-
-                <div className="skill-tags">
-
-                  {skills.map((skill, index) => (
-
-                    <span
-                      key={index}
-                      className="skill-tag"
-                    >
-                      <span className="skill-dot"></span>
-
-                      {skill}
+                    <span className="skill-category-toggle">
+                      {isOpen ? '−' : '+'}
                     </span>
+                  </button>
 
-                  ))}
 
-                </div>
+                  {/* Skills */}
 
-                {/* Hover Arrow */}
+                  <div
+                    className={`skill-tags-wrapper ${
+                      isOpen ? 'is-open' : ''
+                    }`}
+                  >
+                    <div className="skill-tags">
+                      {skills.map((skill, index) => (
+                        <span
+                          key={index}
+                          className="skill-tag"
+                        >
+                          <span className="skill-dot"></span>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-                <span className="skill-category-arrow">
-                  ↗
-                </span>
 
-              </article>
+                  {/* Desktop Hover Arrow */}
 
-            )
+                  <span className="skill-category-arrow">
+                    ↗
+                  </span>
+
+                </article>
+              );
+            }
           )}
-
         </div>
+
 
         {/* =========================================
             BOTTOM STATEMENT
            ========================================= */}
 
         <div className="skills-footer">
-
           <span className="skills-footer-line"></span>
 
           <p>
             LEARN → BUILD → BREAK → UNDERSTAND → REPEAT
           </p>
-
         </div>
 
       </div>
-
     </section>
   );
 }
+

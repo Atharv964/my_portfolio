@@ -1,10 +1,9 @@
-import './Contact.css';
+import "./Contact.css";
 
 export default function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="contact-noise" />
-
       <div className="contact-orb contact-orb-one" />
       <div className="contact-orb contact-orb-two" />
 
@@ -18,105 +17,76 @@ export default function Contact() {
           </div>
 
           <h2>
-            Let's
-            <span>talk.</span>
+            Let's <span>talk.</span>
           </h2>
 
           <p className="contact-intro">
-            Have a project in mind, an opportunity to discuss,
-            or simply want to say hello? My inbox is always open.
+            Have an opportunity, a project, or simply something
+            interesting to discuss? I'd love to hear from you.
           </p>
         </div>
 
-        {/* Main CTA */}
-        <div className="contact-cta">
-          <div className="cta-left">
-            <span className="cta-label">START A CONVERSATION</span>
+        {/* Contact Links */}
+        <div className="contact-links">
 
-            <a
-              href="mailto:atharv@example.com"
-              className="cta-email"
-            >
-              atharv@example.com
-              <span className="cta-arrow">↗</span>
-            </a>
-          </div>
-
-          <div className="availability">
-            <span className="availability-dot" />
-            <div>
-              <span className="availability-title">AVAILABLE</span>
-              <span className="availability-text">
-                Open to opportunities
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Methods */}
-        <div className="contact-methods">
-
+          {/* Email */}
           <a
-            href="mailto:atharv@example.com"
-            className="contact-method"
+            href="mailto:dixitatharv2004@gmail.com"
+            className="contact-link"
+            aria-label="Email Atharv"
           >
-            <div className="method-top">
-              <span className="method-number">01</span>
-              <span className="method-icon">↗</span>
-            </div>
-
-            <div className="method-bottom">
-              <span className="method-label">EMAIL</span>
-              <span className="method-value">
-                atharv@example.com
-              </span>
-            </div>
+            <span className="contact-icon">✉</span>
+            <span className="contact-link-name">Email</span>
+            <span className="contact-link-arrow">↗</span>
           </a>
 
+          {/* LinkedIn */}
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/atharv-dixit-55b873372"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-method"
+            className="contact-link"
+            aria-label="Atharv on LinkedIn"
           >
-            <div className="method-top">
-              <span className="method-number">02</span>
-              <span className="method-icon">↗</span>
-            </div>
-
-            <div className="method-bottom">
-              <span className="method-label">LINKEDIN</span>
-              <span className="method-value">
-                /in/atharvdixit
-              </span>
-            </div>
+            <span className="contact-icon">in</span>
+            <span className="contact-link-name">LinkedIn</span>
+            <span className="contact-link-arrow">↗</span>
           </a>
 
+          {/* GitHub */}
           <a
-            href="https://github.com"
+            href="https://github.com/Atharv964"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-method"
+            className="contact-link"
+            aria-label="Atharv on GitHub"
           >
-            <div className="method-top">
-              <span className="method-number">03</span>
-              <span className="method-icon">↗</span>
-            </div>
+            <span className="contact-icon">◉</span>
+            <span className="contact-link-name">GitHub</span>
+            <span className="contact-link-arrow">↗</span>
+          </a>
 
-            <div className="method-bottom">
-              <span className="method-label">GITHUB</span>
-              <span className="method-value">
-                /Atharv964
-              </span>
-            </div>
+          {/* LeetCode */}
+          <a
+            href="https://leetcode.com/u/p0AiwqkOcf/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-link"
+            aria-label="Atharv on LeetCode"
+          >
+            <span className="contact-icon">λ</span>
+            <span className="contact-link-name">LeetCode</span>
+            <span className="contact-link-arrow">↗</span>
           </a>
 
         </div>
 
-        {/* Bottom Statement */}
+        {/* Bottom */}
         <div className="contact-bottom">
-          <span>BASED IN INDIA</span>
+          <span>BASED IN PUNE, INDIA</span>
+
           <span className="bottom-symbol">✦</span>
+
           <span>BUILDING FOR THE WEB</span>
         </div>
 
@@ -124,4 +94,3 @@ export default function Contact() {
     </section>
   );
 }
-
